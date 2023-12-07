@@ -1,0 +1,2474 @@
+2023-08-21 14:16:55 [INFO] Question: tell me about dataset
+
+2023-08-21 14:16:55 [INFO] Running PandasAI with openai LLM...
+2023-08-21 14:16:55 [INFO] Prompt ID: d839e375-b2c9-4f81-8a29-e13c88622458
+2023-08-21 14:16:58 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-YOUR_****HERE. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-08-21 14:17:53 [INFO] Question: tell me about dataset
+2023-08-21 14:17:53 [INFO] Running PandasAI with openai LLM...
+2023-08-21 14:17:53 [INFO] Prompt ID: 207ec637-fc67-41d0-8c55-790d9b595cc6
+2023-08-21 14:18:15 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    num_rows = df.shape[0]
+    num_cols = df.shape[1]
+    
+    # Analyze
+    analysis = f"The dataset has {num_rows} rows and {num_cols} columns."
+    
+    # Output
+    return {"type": "text", "value": analysis}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-08-21 14:18:15 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    num_rows = df.shape[0]
+    num_cols = df.shape[1]
+    analysis = f'The dataset has {num_rows} rows and {num_cols} columns.'
+    return {'type': 'text', 'value': analysis}
+
+
+result = analyze_data(dfs)
+        ```
+2023-08-21 14:18:15 [INFO] Answer: {'type': 'text', 'value': 'The dataset has 92 rows and 14 columns.'}
+2023-08-21 14:18:15 [INFO] Executed in: 21.912848234176636s
+2023-09-07 11:44:49 [INFO] Question: plot years experience and salary
+
+2023-09-07 11:44:49 [INFO] Running PandasAI with openai LLM...
+2023-09-07 11:44:49 [INFO] Prompt ID: 8c2b790e-0dbc-4118-8234-88ad54b55a97
+2023-09-07 11:45:04 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Plotting the data
+    plt.plot(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years Experience')
+    plt.ylabel('Salary')
+    plt.title('Years Experience vs Salary')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Return the path of the plot
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 11:45:04 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    plt.plot(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years Experience')
+    plt.ylabel('Salary')
+    plt.title('Years Experience vs Salary')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 11:45:05 [WARNING] Error of executing code
+2023-09-07 11:45:05 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-07 11:45:05 [INFO] Failed with error: [Errno 2] No such file or directory: 'exports/charts/temp_chart.png'. Retrying
+2023-09-07 11:45:19 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-07 11:45:19 [INFO] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-07 11:45:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    plt.plot(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years Experience')
+    plt.ylabel('Salary')
+    plt.title('Years Experience vs Salary')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 11:45:32 [WARNING] Error of executing code
+2023-09-07 12:02:45 [INFO] Question: What is dataset about
+2023-09-07 12:02:45 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:02:45 [INFO] Prompt ID: 7858a2f2-4aa6-41bd-a0c7-d7118685c242
+2023-09-07 12:03:06 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Check if there are any dataframes in the list
+    if len(dfs) == 0:
+        return {"type": "text", "value": "No data available."}
+    
+    # Get the first dataframe
+    df = dfs[0]
+    
+    # Check if the dataframe is empty
+    if df.empty:
+        return {"type": "text", "value": "Empty dataframe."}
+    
+    # Get the column names
+    columns = df.columns.tolist()
+    
+    # Check if the dataframe has two columns
+    if len(columns) != 2:
+        return {"type": "text", "value": "Invalid dataframe. It should have two columns."}
+    
+    # Get the column names
+    column_names = ", ".join(columns)
+    
+    # Get the number of rows and columns
+    num_rows = df.shape[0]
+    num_columns = df.shape[1]
+    
+    # Prepare the output message
+    output_message = f"The dataset has {num_rows} rows and {num_columns} columns.\n"
+    output_message += f"The column names are: {column_names}."
+    
+    return {"type": "text", "value": output_message}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:03:06 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    if len(dfs) == 0:
+        return {'type': 'text', 'value': 'No data available.'}
+    df = dfs[0]
+    if df.empty:
+        return {'type': 'text', 'value': 'Empty dataframe.'}
+    columns = df.columns.tolist()
+    if len(columns) != 2:
+        return {'type': 'text', 'value': 'Invalid dataframe. It should have two columns.'}
+    column_names = ', '.join(columns)
+    num_rows = df.shape[0]
+    num_columns = df.shape[1]
+    output_message = f'The dataset has {num_rows} rows and {num_columns} columns.\n'
+    output_message += f'The column names are: {column_names}.'
+    return {'type': 'text', 'value': output_message}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:03:06 [INFO] Answer: {'type': 'text', 'value': 'The dataset has 30 rows and 2 columns.\nThe column names are: YearsExperience, Salary.'}
+2023-09-07 12:03:06 [INFO] Executed in: 21.046038389205933s
+2023-09-07 12:05:13 [INFO] Question: plot salary and years experience
+2023-09-07 12:05:13 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:05:13 [INFO] Prompt ID: 96a51b1f-18b7-4077-9c71-bb78b4492725
+2023-09-07 12:05:26 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    plt.scatter(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years of Experience')
+    plt.ylabel('Salary')
+    plt.title('Salary vs Years of Experience')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:05:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    plt.scatter(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years of Experience')
+    plt.ylabel('Salary')
+    plt.title('Salary vs Years of Experience')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:05:28 [WARNING] Error of executing code
+2023-09-07 12:05:28 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-07 12:05:28 [INFO] Failed with error: [Errno 2] No such file or directory: 'exports/charts/temp_chart.png'. Retrying
+2023-09-07 12:05:41 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-07 12:05:41 [INFO] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-07 12:05:53 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    plt.scatter(df['YearsExperience'], df['Salary'])
+    plt.xlabel('Years of Experience')
+    plt.ylabel('Salary')
+    plt.title('Salary vs Years of Experience')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:05:53 [WARNING] Error of executing code
+2023-09-07 12:11:12 [INFO] Question: plot survival count of males and females
+2023-09-07 12:11:12 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:11:12 [INFO] Prompt ID: 89faadc7-d0f7-4fe1-ab89-231b5b1420bb
+2023-09-07 12:11:27 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by 'Sex' and count the number of survivors
+    survival_count = df.groupby('Sex')['Survived'].sum()
+    
+    # Plot the survival count
+    plt.bar(survival_count.index, survival_count.values)
+    plt.xlabel('Sex')
+    plt.ylabel('Survival Count')
+    plt.title('Survival Count by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Return the path of the plot
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:11:27 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_count = df.groupby('Sex')['Survived'].sum()
+    plt.bar(survival_count.index, survival_count.values)
+    plt.xlabel('Sex')
+    plt.ylabel('Survival Count')
+    plt.title('Survival Count by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:11:28 [WARNING] Error of executing code
+2023-09-07 12:11:28 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-07 12:11:28 [INFO] Failed with error: [Errno 2] No such file or directory: 'exports/charts/temp_chart.png'. Retrying
+2023-09-07 12:11:44 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-07 12:11:44 [INFO] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-07 12:11:57 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_count = df.groupby('Sex')['Survived'].sum()
+    plt.bar(survival_count.index, survival_count.values)
+    plt.xlabel('Sex')
+    plt.ylabel('Survival Count')
+    plt.title('Survival Count by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:11:57 [WARNING] Error of executing code
+2023-09-07 12:22:00 [INFO] Question: plot survived males and females
+2023-09-07 12:22:00 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:22:00 [INFO] Prompt ID: 2532fa27-993c-466a-a985-4acd2be25b4b
+2023-09-07 12:22:19 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Filter the data for survived males and females
+    survived_males = df[(df['Survived'] == 1) & (df['Sex'] == 'male')]
+    survived_females = df[(df['Survived'] == 1) & (df['Sex'] == 'female')]
+    
+    # Plot the data
+    plt.figure(figsize=(10, 6))
+    plt.bar(['Males', 'Females'], [len(survived_males), len(survived_females)])
+    plt.xlabel('Gender')
+    plt.ylabel('Number of Survivors')
+    plt.title('Survived Males and Females')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Return the path of the plot
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:22:19 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survived_males = df[(df['Survived'] == 1) & (df['Sex'] == 'male')]
+    survived_females = df[(df['Survived'] == 1) & (df['Sex'] == 'female')]
+    plt.figure(figsize=(10, 6))
+    plt.bar(['Males', 'Females'], [len(survived_males), len(survived_females)])
+    plt.xlabel('Gender')
+    plt.ylabel('Number of Survivors')
+    plt.title('Survived Males and Females')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:22:19 [WARNING] Error of executing code
+2023-09-07 12:22:19 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-07 12:22:19 [INFO] Failed with error: [Errno 2] No such file or directory: 'exports/charts/temp_chart.png'. Retrying
+2023-09-07 12:22:36 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-07 12:22:36 [INFO] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-07 12:22:51 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survived_males = df[(df['Survived'] == 1) & (df['Sex'] == 'male')]
+    survived_females = df[(df['Survived'] == 1) & (df['Sex'] == 'female')]
+    plt.figure(figsize=(10, 6))
+    plt.bar(['Males', 'Females'], [len(survived_males), len(survived_females)])
+    plt.xlabel('Gender')
+    plt.ylabel('Number of Survivors')
+    plt.title('Survived Males and Females')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:22:51 [WARNING] Error of executing code
+2023-09-07 12:25:34 [INFO] Question: generate summary of dataset
+2023-09-07 12:25:34 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:25:34 [INFO] Prompt ID: 381e75bb-5aad-4957-99b4-dc89fbf1693d
+2023-09-07 12:25:45 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe(include='all').transpose()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:25:45 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe(include='all').transpose()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:25:45 [INFO] Answer: {'type': 'dataframe', 'value':              count unique                      top freq       mean         std   min     25%      50%    75%       max
+PassengerId  891.0    NaN                      NaN  NaN      446.0  257.353842   1.0   223.5    446.0  668.5     891.0
+Survived     891.0    NaN                      NaN  NaN   0.383838    0.486592   0.0     0.0      0.0    1.0       1.0
+Pclass       891.0    NaN                      NaN  NaN   2.308642    0.836071   1.0     2.0      3.0    3.0       3.0
+Name           891    891  Braund, Mr. Owen Harris    1        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Sex            891      2                     male  577        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Age          714.0    NaN                      NaN  NaN  29.699118   14.526497  0.42  20.125     28.0   38.0      80.0
+SibSp        891.0    NaN                      NaN  NaN   0.523008    1.102743   0.0     0.0      0.0    1.0       8.0
+Parch        891.0    NaN                      NaN  NaN   0.381594    0.806057   0.0     0.0      0.0    0.0       6.0
+Ticket         891    681                   347082    7        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Fare         891.0    NaN                      NaN  NaN  32.204208   49.693429   0.0  7.9104  14.4542   31.0  512.3292
+Cabin          204    147                  B96 B98    4        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Embarked       889      3                        S  644        NaN         NaN   NaN     NaN      NaN    NaN       NaN}
+2023-09-07 12:25:45 [INFO] Executed in: 11.212140798568726s
+2023-09-07 12:26:22 [INFO] Question: generate summary of dataset in words
+2023-09-07 12:26:22 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:26:22 [INFO] Prompt ID: 9cffaaf0-7ece-4ef8-aee6-3a2968589f84
+2023-09-07 12:26:40 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe(include='all').transpose()
+    summary['missing_values'] = dfs[0].isnull().sum()
+    summary['unique_values'] = dfs[0].nunique()
+    summary['dtype'] = dfs[0].dtypes
+    summary = summary[['count', 'missing_values', 'unique_values', 'dtype', 'top', 'freq', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']]
+    summary = summary.reset_index().rename(columns={'index': 'column_name'})
+    summary = summary.to_string(index=False)
+    
+    return {"type": "text", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:26:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe(include='all').transpose()
+    summary['missing_values'] = dfs[0].isnull().sum()
+    summary['unique_values'] = dfs[0].nunique()
+    summary['dtype'] = dfs[0].dtypes
+    summary = summary[['count', 'missing_values', 'unique_values', 'dtype', 'top', 'freq', 'mean', 'std', 'min', '25%', '50%', '75%', 'max']]
+    summary = summary.reset_index().rename(columns={'index': 'column_name'})
+    return {'type': 'text', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:26:40 [INFO] Answer: {'type': 'text', 'value':     column_name  count  missing_values  unique_values    dtype  ...   min     25%      50%    75%       max
+0   PassengerId  891.0               0            891    int64  ...   1.0   223.5    446.0  668.5     891.0
+1      Survived  891.0               0              2    int64  ...   0.0     0.0      0.0    1.0       1.0
+2        Pclass  891.0               0              3    int64  ...   1.0     2.0      3.0    3.0       3.0
+3          Name    891               0            891   object  ...   NaN     NaN      NaN    NaN       NaN
+4           Sex    891               0              2   object  ...   NaN     NaN      NaN    NaN       NaN
+5           Age  714.0             177             88  float64  ...  0.42  20.125     28.0   38.0      80.0
+6         SibSp  891.0               0              7    int64  ...   0.0     0.0      0.0    1.0       8.0
+7         Parch  891.0               0              7    int64  ...   0.0     0.0      0.0    0.0       6.0
+8        Ticket    891               0            681   object  ...   NaN     NaN      NaN    NaN       NaN
+9          Fare  891.0               0            248  float64  ...   0.0  7.9104  14.4542   31.0  512.3292
+10        Cabin    204             687            147   object  ...   NaN     NaN      NaN    NaN       NaN
+11     Embarked    889               2              3   object  ...   NaN     NaN      NaN    NaN       NaN
+
+[12 rows x 14 columns]}
+2023-09-07 12:26:40 [INFO] Executed in: 18.199758768081665s
+2023-09-07 12:27:28 [INFO] Question: mean of males col
+2023-09-07 12:27:28 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:27:28 [INFO] Prompt ID: f6c473fe-e3c5-4fe5-8255-db27c4f425bc
+2023-09-07 12:27:41 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_of_males = dfs[0][dfs[0]['Sex'] == 'male']['Age'].mean()
+    return {"type": "number", "value": mean_of_males}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:27:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_of_males = dfs[0][dfs[0]['Sex'] == 'male']['Age'].mean()
+    return {'type': 'number', 'value': mean_of_males}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:27:41 [INFO] Answer: {'type': 'number', 'value': 30.72664459161148}
+2023-09-07 12:27:41 [INFO] Executed in: 12.666855812072754s
+2023-09-07 12:29:45 [INFO] Question: summarize this dataset
+2023-09-07 12:29:45 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:29:45 [INFO] Prompt ID: 7dd303d8-acfe-43d1-bf14-e342a3c2b00d
+2023-09-07 12:29:58 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe(include='all').transpose()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:29:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe(include='all').transpose()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:29:58 [INFO] Answer: {'type': 'dataframe', 'value':              count unique                      top freq       mean         std   min     25%      50%    75%       max
+PassengerId  891.0    NaN                      NaN  NaN      446.0  257.353842   1.0   223.5    446.0  668.5     891.0
+Survived     891.0    NaN                      NaN  NaN   0.383838    0.486592   0.0     0.0      0.0    1.0       1.0
+Pclass       891.0    NaN                      NaN  NaN   2.308642    0.836071   1.0     2.0      3.0    3.0       3.0
+Name           891    891  Braund, Mr. Owen Harris    1        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Sex            891      2                     male  577        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Age          714.0    NaN                      NaN  NaN  29.699118   14.526497  0.42  20.125     28.0   38.0      80.0
+SibSp        891.0    NaN                      NaN  NaN   0.523008    1.102743   0.0     0.0      0.0    1.0       8.0
+Parch        891.0    NaN                      NaN  NaN   0.381594    0.806057   0.0     0.0      0.0    0.0       6.0
+Ticket         891    681                   347082    7        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Fare         891.0    NaN                      NaN  NaN  32.204208   49.693429   0.0  7.9104  14.4542   31.0  512.3292
+Cabin          204    147                  B96 B98    4        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Embarked       889      3                        S  644        NaN         NaN   NaN     NaN      NaN    NaN       NaN}
+2023-09-07 12:29:58 [INFO] Executed in: 12.86563491821289s
+2023-09-07 12:30:42 [INFO] Question: how many nan values in sex col
+2023-09-07 12:30:42 [INFO] Running PandasAI with openai LLM...
+2023-09-07 12:30:42 [INFO] Prompt ID: e02a43d0-3582-430d-96dc-40447ebedbc8
+2023-09-07 12:30:54 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    nan_count = dfs[0]['Sex'].isna().sum()
+    return {"type": "number", "value": nan_count}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 12:30:54 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    nan_count = dfs[0]['Sex'].isna().sum()
+    return {'type': 'number', 'value': nan_count}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 12:30:54 [INFO] Answer: {'type': 'number', 'value': 0}
+2023-09-07 12:30:54 [INFO] Executed in: 12.630747318267822s
+2023-09-07 14:24:16 [INFO] Question: mean of sex
+2023-09-07 14:24:16 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:24:16 [INFO] Prompt ID: e401eadb-d0cf-44dd-8452-629d6a5e9ca0
+2023-09-07 14:24:29 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Process
+    # Group by 'Sex' and calculate the mean of each group
+    mean_sex = dfs[0].groupby('Sex')['Age'].mean()
+    
+    # Output
+    # Return the mean of sex as a dataframe
+    return {"type": "dataframe", "value": mean_sex}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:24:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_sex = dfs[0].groupby('Sex')['Age'].mean()
+    return {'type': 'dataframe', 'value': mean_sex}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:24:29 [INFO] Answer: {'type': 'dataframe', 'value': Sex
+female    27.915709
+male      30.726645
+Name: Age, dtype: float64}
+2023-09-07 14:24:29 [INFO] Executed in: 12.982718706130981s
+2023-09-07 14:24:39 [INFO] Question: mean of age
+2023-09-07 14:24:39 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:24:39 [INFO] Prompt ID: e194cfef-f6e4-4701-aef6-d217aec2ee0e
+2023-09-07 14:24:51 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:24:51 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:24:51 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:24:51 [INFO] Executed in: 11.93891453742981s
+2023-09-07 14:26:02 [INFO] Question: mean of age
+2023-09-07 14:26:02 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:26:02 [INFO] Prompt ID: ea91c43b-78f1-4166-b420-72aef9e15276
+2023-09-07 14:26:02 [INFO] Using cached response
+2023-09-07 14:26:02 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:26:02 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:26:02 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:26:02 [INFO] Executed in: 0.007995843887329102s
+2023-09-07 14:29:04 [INFO] Question: mean of age
+
+2023-09-07 14:29:04 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:29:04 [INFO] Prompt ID: 9611bfdc-33fc-43ab-9fea-55be109c0787
+2023-09-07 14:29:15 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:29:15 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:29:15 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:29:15 [INFO] Executed in: 11.730064392089844s
+2023-09-07 14:29:45 [INFO] Question: mean of age
+
+2023-09-07 14:29:45 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:29:45 [INFO] Prompt ID: d94496d8-8c22-4b41-a84d-ea0104f77cd2
+2023-09-07 14:29:45 [INFO] Using cached response
+2023-09-07 14:29:45 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:29:45 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:29:45 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:29:45 [INFO] Executed in: 0.008993148803710938s
+2023-09-07 14:31:26 [INFO] Question: mean of age
+
+2023-09-07 14:31:26 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:26 [INFO] Prompt ID: bc30b827-ad18-4635-bb98-65131c058357
+2023-09-07 14:31:26 [INFO] Using cached response
+2023-09-07 14:31:26 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:26 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:26 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:26 [INFO] Executed in: 0.010998964309692383s
+2023-09-07 14:31:31 [INFO] Question: mean of age
+
+2023-09-07 14:31:31 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:31 [INFO] Prompt ID: 6874016e-5d9b-4bc3-a14f-b23d6830f036
+2023-09-07 14:31:31 [INFO] Using cached response
+2023-09-07 14:31:31 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:31 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:31 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:31 [INFO] Executed in: 0.003994941711425781s
+2023-09-07 14:31:31 [INFO] Question: mean of age
+
+2023-09-07 14:31:31 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:31 [INFO] Prompt ID: 989cd29d-efcd-47dd-acdc-f724e5a4d93e
+2023-09-07 14:31:31 [INFO] Using cached response
+2023-09-07 14:31:31 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:31 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:31 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:31 [INFO] Executed in: 0.0049970149993896484s
+2023-09-07 14:31:31 [INFO] Question: mean of age
+
+2023-09-07 14:31:31 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:31 [INFO] Prompt ID: 2fa356df-92fa-4fd0-a0f0-26a90b087790
+2023-09-07 14:31:31 [INFO] Using cached response
+2023-09-07 14:31:31 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:31 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:31 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:31 [INFO] Executed in: 0.0s
+2023-09-07 14:31:32 [INFO] Question: mean of age
+
+2023-09-07 14:31:32 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:32 [INFO] Prompt ID: 664ebe7d-26df-4f6e-8dc6-a8571b088297
+2023-09-07 14:31:32 [INFO] Using cached response
+2023-09-07 14:31:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:32 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:32 [INFO] Executed in: 0.0044536590576171875s
+2023-09-07 14:31:32 [INFO] Question: mean of age
+
+2023-09-07 14:31:32 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:32 [INFO] Prompt ID: d5b9def5-25b4-41db-87f2-7fc1cb5c2df1
+2023-09-07 14:31:32 [INFO] Using cached response
+2023-09-07 14:31:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:32 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:32 [INFO] Executed in: 0.022986650466918945s
+2023-09-07 14:31:32 [INFO] Question: mean of age
+
+2023-09-07 14:31:32 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:32 [INFO] Prompt ID: 0d6d49d4-543c-48b5-8143-260ce7fd56c9
+2023-09-07 14:31:32 [INFO] Using cached response
+2023-09-07 14:31:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:32 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:32 [INFO] Executed in: 0.010995864868164062s
+2023-09-07 14:31:32 [INFO] Question: mean of age
+
+2023-09-07 14:31:32 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:32 [INFO] Prompt ID: 8b96d33a-405a-447c-97c8-86bf565cf151
+2023-09-07 14:31:32 [INFO] Using cached response
+2023-09-07 14:31:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:32 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:32 [INFO] Executed in: 0.0069963932037353516s
+2023-09-07 14:31:33 [INFO] Question: mean of age
+
+2023-09-07 14:31:33 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:33 [INFO] Prompt ID: d6a158af-6f06-49fd-b85f-326c101ffe2f
+2023-09-07 14:31:33 [INFO] Using cached response
+2023-09-07 14:31:33 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:33 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:33 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:33 [INFO] Executed in: 0.003998756408691406s
+2023-09-07 14:31:33 [INFO] Question: mean of age
+
+2023-09-07 14:31:33 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:33 [INFO] Prompt ID: a8ce3c86-6c5c-405a-afb1-6af0a911ef92
+2023-09-07 14:31:33 [INFO] Using cached response
+2023-09-07 14:31:33 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:33 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:33 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:33 [INFO] Executed in: 0.0064239501953125s
+2023-09-07 14:31:33 [INFO] Question: mean of age
+
+2023-09-07 14:31:33 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:33 [INFO] Prompt ID: 8c992376-28b8-4599-8c16-dd2a71d41e57
+2023-09-07 14:31:33 [INFO] Using cached response
+2023-09-07 14:31:33 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:33 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:33 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:33 [INFO] Executed in: 0.01699066162109375s
+2023-09-07 14:31:33 [INFO] Question: mean of age
+
+2023-09-07 14:31:33 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:33 [INFO] Prompt ID: dbeed815-8e21-4c79-bdb8-ed9dd20b63ee
+2023-09-07 14:31:33 [INFO] Using cached response
+2023-09-07 14:31:33 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:33 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:33 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:33 [INFO] Executed in: 0.005998134613037109s
+2023-09-07 14:31:34 [INFO] Question: mean of age
+
+2023-09-07 14:31:34 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:34 [INFO] Prompt ID: cc23ac3f-52ee-439d-9600-9f1c3d2a22f4
+2023-09-07 14:31:34 [INFO] Using cached response
+2023-09-07 14:31:34 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:34 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:34 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:34 [INFO] Executed in: 0.006995201110839844s
+2023-09-07 14:31:35 [INFO] Question: mean of age
+
+2023-09-07 14:31:35 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:35 [INFO] Prompt ID: 4a0266cf-4b5c-4869-b7c0-b87dd8d06707
+2023-09-07 14:31:35 [INFO] Using cached response
+2023-09-07 14:31:35 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:35 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:35 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:35 [INFO] Executed in: 0.021048307418823242s
+2023-09-07 14:31:40 [INFO] Question: mean of age
+
+2023-09-07 14:31:40 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:31:40 [INFO] Prompt ID: 1b81a610-a105-423e-8405-2b54dc3f558d
+2023-09-07 14:31:40 [INFO] Using cached response
+2023-09-07 14:31:40 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:31:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:31:40 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:31:40 [INFO] Executed in: 0.00733637809753418s
+2023-09-07 14:33:21 [INFO] Question: mean of age
+2023-09-07 14:33:21 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:33:21 [INFO] Prompt ID: 50675dd5-530d-488a-bed6-bc995e63581d
+2023-09-07 14:33:21 [INFO] Using cached response
+2023-09-07 14:33:21 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:33:21 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:33:21 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:33:21 [INFO] Executed in: 0.003997325897216797s
+2023-09-07 14:36:14 [INFO] Question: mean of age
+2023-09-07 14:36:14 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:36:14 [INFO] Prompt ID: 8ba53e93-b6fc-4c64-9c6e-a94dd6bc3b35
+2023-09-07 14:36:14 [INFO] Using cached response
+2023-09-07 14:36:14 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:36:14 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:36:14 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:36:14 [INFO] Executed in: 0.017911911010742188s
+2023-09-07 14:36:30 [INFO] Question: mean of age
+2023-09-07 14:36:30 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:36:30 [INFO] Prompt ID: a457db41-9444-4a5d-a4a7-d2a8ddcff5d8
+2023-09-07 14:36:30 [INFO] Using cached response
+2023-09-07 14:36:30 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    mean_age = dfs[0]['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:36:30 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:36:30 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-07 14:36:30 [INFO] Executed in: 0.003998517990112305s
+2023-09-07 14:43:21 [INFO] Question: summarize
+2023-09-07 14:43:21 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:43:21 [INFO] Prompt ID: faaceed8-b702-4293-83e3-f1bdf8582fd7
+2023-09-07 14:43:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:43:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:43:32 [INFO] Answer: {'type': 'dataframe', 'value':        PassengerId    Survived      Pclass         Age       SibSp       Parch        Fare
+count   891.000000  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000
+mean    446.000000    0.383838    2.308642   29.699118    0.523008    0.381594   32.204208
+std     257.353842    0.486592    0.836071   14.526497    1.102743    0.806057   49.693429
+min       1.000000    0.000000    1.000000    0.420000    0.000000    0.000000    0.000000
+25%     223.500000    0.000000    2.000000   20.125000    0.000000    0.000000    7.910400
+50%     446.000000    0.000000    3.000000   28.000000    0.000000    0.000000   14.454200
+75%     668.500000    1.000000    3.000000   38.000000    1.000000    0.000000   31.000000
+max     891.000000    1.000000    3.000000   80.000000    8.000000    6.000000  512.329200}
+2023-09-07 14:43:32 [INFO] Executed in: 11.937431573867798s
+2023-09-07 14:55:24 [INFO] Question: plot bar chart of age and sex
+2023-09-07 14:55:24 [INFO] Running PandasAI with openai LLM...
+2023-09-07 14:55:24 [INFO] Prompt ID: 8a68053a-85c5-45ac-bb1a-fea2bb2b1e60
+2023-09-07 14:55:40 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare
+    df['Age'] = df['Age'].fillna(0)  # Fill missing values with 0
+    
+    # Process
+    age_sex = df[['Age', 'Sex']]
+    
+    # Analyze
+    plt.figure(figsize=(10, 6))
+    age_sex.groupby(['Sex']).mean()['Age'].plot(kind='bar')
+    plt.xlabel('Sex')
+    plt.ylabel('Average Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    
+    # Output
+    return {"type": "plot", "value": "exports/charts/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 14:55:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    age_sex = df[['Age', 'Sex']]
+    plt.figure(figsize=(10, 6))
+    age_sex.groupby(['Sex']).mean()['Age'].plot(kind='bar')
+    plt.xlabel('Sex')
+    plt.ylabel('Average Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:55:41 [WARNING] Error of executing code
+2023-09-07 14:55:41 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-07 14:55:41 [INFO] Failed with error: [Errno 2] No such file or directory: 'exports/charts/temp_chart.png'. Retrying
+2023-09-07 14:55:58 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-07 14:55:58 [INFO] Failed with error: Generated code includes import of os which is not in whitelist.. Retrying
+2023-09-07 14:56:12 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    age_sex = df[['Age', 'Sex']]
+    plt.figure(figsize=(10, 6))
+    age_sex.groupby(['Sex']).mean()['Age'].plot(kind='bar')
+    plt.xlabel('Sex')
+    plt.ylabel('Average Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('exports/charts/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'exports/charts/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 14:56:13 [WARNING] Error of executing code
+2023-09-07 15:04:48 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:04:48 [INFO] Question: plot bar chart of age by sex
+2023-09-07 15:04:48 [INFO] Running PandasAI with openai LLM...
+2023-09-07 15:04:48 [INFO] Prompt ID: 5de0581f-e303-4a12-b556-4b62f571e19b
+2023-09-07 15:05:04 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare
+    df['Age'] = df['Age'].fillna(0)  # Replace missing values with 0
+    
+    # Process
+    age_by_sex = df.groupby('Sex')['Age'].mean()
+    
+    # Analyze
+    fig, ax = plt.subplots()
+    age_by_sex.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 15:05:04 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    age_by_sex = df.groupby('Sex')['Age'].mean()
+    fig, ax = plt.subplots()
+    age_by_sex.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 15:05:05 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 15:05:05 [INFO] Executed in: 16.708277463912964s
+2023-09-07 15:05:22 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:05:22 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:05:22 [INFO] Question: plot bar chart of age by sex
+2023-09-07 15:05:22 [INFO] Running PandasAI with openai LLM...
+2023-09-07 15:05:22 [INFO] Prompt ID: e62d3361-faa2-4a4f-9e64-de001379bd61
+2023-09-07 15:05:22 [INFO] Using cached response
+2023-09-07 15:05:22 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare
+    df['Age'] = df['Age'].fillna(0)  # Replace missing values with 0
+    
+    # Process
+    age_by_sex = df.groupby('Sex')['Age'].mean()
+    
+    # Analyze
+    fig, ax = plt.subplots()
+    age_by_sex.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 15:05:22 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    age_by_sex = df.groupby('Sex')['Age'].mean()
+    fig, ax = plt.subplots()
+    age_by_sex.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 15:05:23 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 15:05:23 [INFO] Executed in: 0.929926872253418s
+2023-09-07 15:06:14 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:06:14 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:06:14 [INFO] Question: plot bar chart of age by sex using different color
+2023-09-07 15:06:14 [INFO] Running PandasAI with openai LLM...
+2023-09-07 15:06:14 [INFO] Prompt ID: 74af7ffa-6dc3-4d80-8cfc-a16bca8613a5
+2023-09-07 15:06:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare: Preprocessing and cleaning data if necessary
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    grouped_df = df.groupby('Sex')['Age'].mean()
+    
+    # Analyze: Conducting the actual analysis
+    fig, ax = plt.subplots()
+    grouped_df.plot(kind='bar', color=['blue', 'pink'], ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    
+    # Save the plot to an image
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    
+    # Output: return a dictionary of type "plot" with the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 15:06:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    grouped_df = df.groupby('Sex')['Age'].mean()
+    fig, ax = plt.subplots()
+    grouped_df.plot(kind='bar', color=['blue', 'pink'], ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Average Age')
+    ax.set_title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 15:06:33 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 15:06:33 [INFO] Executed in: 18.84760069847107s
+2023-09-07 15:11:18 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:11:18 [INFO] Question: generate line plot of age by sex
+2023-09-07 15:11:18 [INFO] Running PandasAI with openai LLM...
+2023-09-07 15:11:18 [INFO] Prompt ID: 5c9b3d72-890e-4a86-9ba9-bc399af8142e
+2023-09-07 15:11:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare
+    df['Sex'] = df['Sex'].map({'female': 'Female', 'male': 'Male'})
+    
+    # Process
+    grouped_df = df.groupby('Sex')['Age'].mean().reset_index()
+    
+    # Analyze
+    plt.plot(grouped_df['Sex'], grouped_df['Age'])
+    plt.xlabel('Sex')
+    plt.ylabel('Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    
+    # Output
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 15:11:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Sex'] = df['Sex'].map({'female': 'Female', 'male': 'Male'})
+    grouped_df = df.groupby('Sex')['Age'].mean().reset_index()
+    plt.plot(grouped_df['Sex'], grouped_df['Age'])
+    plt.xlabel('Sex')
+    plt.ylabel('Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 15:11:34 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 15:11:34 [INFO] Executed in: 16.106677055358887s
+2023-09-07 15:18:51 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:18:51 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 15:18:51 [INFO] Question: summarize
+2023-09-07 15:18:51 [INFO] Running PandasAI with openai LLM...
+2023-09-07 15:18:51 [INFO] Prompt ID: e09af484-be5e-4e4d-8f2e-f0fc52396df6
+2023-09-07 15:18:51 [INFO] Using cached response
+2023-09-07 15:18:51 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 15:18:51 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 15:18:51 [INFO] Answer: {'type': 'dataframe', 'value':        PassengerId    Survived      Pclass         Age       SibSp       Parch        Fare
+count   891.000000  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000
+mean    446.000000    0.383838    2.308642   29.699118    0.523008    0.381594   32.204208
+std     257.353842    0.486592    0.836071   14.526497    1.102743    0.806057   49.693429
+min       1.000000    0.000000    1.000000    0.420000    0.000000    0.000000    0.000000
+25%     223.500000    0.000000    2.000000   20.125000    0.000000    0.000000    7.910400
+50%     446.000000    0.000000    3.000000   28.000000    0.000000    0.000000   14.454200
+75%     668.500000    1.000000    3.000000   38.000000    1.000000    0.000000   31.000000
+max     891.000000    1.000000    3.000000   80.000000    8.000000    6.000000  512.329200}
+2023-09-07 15:18:51 [INFO] Executed in: 0.12364077568054199s
+2023-09-07 15:18:51 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:33:39 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:33:39 [INFO] Question: how many rows and columns in data set
+2023-09-07 19:33:39 [INFO] Running PandasAI with openai LLM...
+2023-09-07 19:33:39 [INFO] Prompt ID: c2a44fac-f847-4110-91fd-f19598303ea4
+2023-09-07 19:34:07 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Get the first dataframe
+    df = dfs[0]
+    
+    # Get the number of rows and columns in the dataframe
+    num_rows = df.shape[0]
+    num_columns = df.shape[1]
+    
+    # Return the result as a text
+    result = {
+        "type": "text",
+        "value": f"The dataset has {num_rows} rows and {num_columns} columns."
+    }
+    
+    return result
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 19:34:07 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    num_rows = df.shape[0]
+    num_columns = df.shape[1]
+    result = {'type': 'text', 'value': f'The dataset has {num_rows} rows and {num_columns} columns.'}
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 19:34:07 [INFO] Answer: {'type': 'text', 'value': 'The dataset has 891 rows and 12 columns.'}
+2023-09-07 19:34:07 [INFO] Executed in: 28.095038414001465s
+2023-09-07 19:39:24 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:39:24 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:39:24 [INFO] Question: summarize
+2023-09-07 19:39:24 [INFO] Running PandasAI with openai LLM...
+2023-09-07 19:39:24 [INFO] Prompt ID: b4907f44-382c-4ceb-afbb-24d2aabc933e
+2023-09-07 19:39:24 [INFO] Using cached response
+2023-09-07 19:39:24 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 19:39:24 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 19:39:24 [INFO] Answer: {'type': 'dataframe', 'value':        PassengerId    Survived      Pclass         Age       SibSp       Parch        Fare
+count   891.000000  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000
+mean    446.000000    0.383838    2.308642   29.699118    0.523008    0.381594   32.204208
+std     257.353842    0.486592    0.836071   14.526497    1.102743    0.806057   49.693429
+min       1.000000    0.000000    1.000000    0.420000    0.000000    0.000000    0.000000
+25%     223.500000    0.000000    2.000000   20.125000    0.000000    0.000000    7.910400
+50%     446.000000    0.000000    3.000000   28.000000    0.000000    0.000000   14.454200
+75%     668.500000    1.000000    3.000000   38.000000    1.000000    0.000000   31.000000
+max     891.000000    1.000000    3.000000   80.000000    8.000000    6.000000  512.329200}
+2023-09-07 19:39:24 [INFO] Executed in: 0.13127541542053223s
+2023-09-07 19:39:24 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:39:48 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:39:48 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:39:48 [INFO] Question: give me summary
+2023-09-07 19:39:48 [INFO] Running PandasAI with openai LLM...
+2023-09-07 19:39:48 [INFO] Prompt ID: 033e1c6a-e27b-4ff2-9520-9d5a05086e83
+2023-09-07 19:39:59 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 19:39:59 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 19:39:59 [INFO] Answer: {'type': 'dataframe', 'value':        PassengerId    Survived      Pclass         Age       SibSp       Parch        Fare
+count   891.000000  891.000000  891.000000  714.000000  891.000000  891.000000  891.000000
+mean    446.000000    0.383838    2.308642   29.699118    0.523008    0.381594   32.204208
+std     257.353842    0.486592    0.836071   14.526497    1.102743    0.806057   49.693429
+min       1.000000    0.000000    1.000000    0.420000    0.000000    0.000000    0.000000
+25%     223.500000    0.000000    2.000000   20.125000    0.000000    0.000000    7.910400
+50%     446.000000    0.000000    3.000000   28.000000    0.000000    0.000000   14.454200
+75%     668.500000    1.000000    3.000000   38.000000    1.000000    0.000000   31.000000
+max     891.000000    1.000000    3.000000   80.000000    8.000000    6.000000  512.329200}
+2023-09-07 19:39:59 [INFO] Executed in: 10.987467050552368s
+2023-09-07 19:39:59 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:55:25 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:55:25 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:55:25 [INFO] Question: generate bar chart of sex and age
+2023-09-07 19:55:25 [INFO] Running PandasAI with openai LLM...
+2023-09-07 19:55:25 [INFO] Prompt ID: 9b269ce2-148b-445b-a178-b18304bd9eba
+2023-09-07 19:55:40 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare: Preprocessing and cleaning data if necessary
+    df['Age'] = df['Age'].fillna(0)  # Fill missing values with 0
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    grouped_df = df.groupby(['Sex']).mean()['Age']
+    
+    # Analyze: Conducting the actual analysis
+    # Create bar chart of sex and age
+    plt.bar(grouped_df.index, grouped_df.values)
+    plt.xlabel('Sex')
+    plt.ylabel('Average Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')  # Save the chart as an image
+    
+    # Output: return a dictionary of type "plot" and the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 19:55:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    grouped_df = df.groupby(['Sex']).mean()['Age']
+    plt.bar(grouped_df.index, grouped_df.values)
+    plt.xlabel('Sex')
+    plt.ylabel('Average Age')
+    plt.title('Average Age by Sex')
+    plt.savefig('/temp_chart.png')
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 19:55:42 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 19:55:42 [INFO] Executed in: 17.021416902542114s
+2023-09-07 19:56:01 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:56:01 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-09-07 19:56:02 [INFO] Question: generate bar chart of sex and age with different colors
+2023-09-07 19:56:02 [INFO] Running PandasAI with openai LLM...
+2023-09-07 19:56:02 [INFO] Prompt ID: 4b76720d-2feb-45cb-9bc7-6d447db71ec1
+2023-09-07 19:56:16 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Prepare: Preprocessing and cleaning data if necessary
+    df['Age'] = df['Age'].fillna(0)  # Fill missing values with 0
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    grouped_df = df.groupby(['Sex', 'Age']).size().unstack()
+    
+    # Analyze: Conducting the actual analysis
+    fig, ax = plt.subplots()
+    grouped_df.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Count')
+    ax.set_title('Bar Chart of Sex and Age')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    
+    # Output: return a dictionary of type "plot" and the path of the plot
+    return {"type": "plot", "value": "/temp_chart.png"}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-07 19:56:16 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    df['Age'] = df['Age'].fillna(0)
+    grouped_df = df.groupby(['Sex', 'Age']).size().unstack()
+    fig, ax = plt.subplots()
+    grouped_df.plot(kind='bar', ax=ax)
+    ax.set_xlabel('Sex')
+    ax.set_ylabel('Count')
+    ax.set_title('Bar Chart of Sex and Age')
+    plt.savefig('/temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': '/temp_chart.png'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-07 19:56:19 [INFO] Answer: {'type': 'plot', 'value': '/temp_chart.png'}
+2023-09-07 19:56:19 [INFO] Executed in: 17.781264781951904s
+2023-11-18 19:50:47 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-11-18 19:50:48 [INFO] Question: hi
+2023-11-18 19:50:48 [INFO] Running PandasAI with openai LLM...
+2023-11-18 19:50:48 [INFO] Prompt ID: c58f4c42-b83b-4588-8334-7d5aac4ffe9e
+2023-11-18 19:50:49 [INFO] error_code=insufficient_quota error_message='You exceeded your current quota, please check your plan and billing details.' error_param=None error_type=insufficient_quota message='OpenAI API error received' stream_error=False
+2023-11-18 19:59:03 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-11-18 19:59:03 [ERROR] Could not load configuration
+Traceback (most recent call last):
+  File "C:\Users\UMAR\miniconda3\envs\test\lib\site-packages\pandasai\config.py", line 19, in load_config
+    with open(find_closest("pandasai.json"), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Streamlit_App\\CSV\\pandasai.json'
+2023-11-18 19:59:03 [INFO] Question: what is this dataset about
+2023-11-18 19:59:03 [INFO] Running PandasAI with openai LLM...
+2023-11-18 19:59:03 [INFO] Prompt ID: d6f237ae-47ad-40da-8d19-f5d0868d1a4a
+2023-11-18 19:59:31 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in /temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    dataset_description = "The dataset contains information about passengers on the Titanic. It includes details such as passenger ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation."
+    return {"type": "text", "value": dataset_description}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-11-18 19:59:31 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    dataset_description = 'The dataset contains information about passengers on the Titanic. It includes details such as passenger ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation.'
+    return {'type': 'text', 'value': dataset_description}
+
+
+result = analyze_data(dfs)
+        ```
+2023-11-18 19:59:31 [INFO] Answer: {'type': 'text', 'value': 'The dataset contains information about passengers on the Titanic. It includes details such as passenger ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation.'}
+2023-11-18 19:59:31 [INFO] Executed in: 28.678608417510986s
